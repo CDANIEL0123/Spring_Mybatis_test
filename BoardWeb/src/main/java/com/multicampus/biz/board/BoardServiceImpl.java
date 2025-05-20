@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 //4. 서비스 구현 클래스 : 비즈니스 로직 처리 담당 (이때 DAO를 이용하여 DB 연동을 처리)
 @Service("boardService")
