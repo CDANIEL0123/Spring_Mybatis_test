@@ -1,15 +1,13 @@
 package com.multicampus.biz.board;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 // 2. DAO(Data Access Object) 클래스
-@Repository
-public class BoardDAOSpring {
+//@Repository
+public class BoardDAOSpring implements BoardDAO {
 	
 	@Autowired
 	private JdbcTemplate spring;
@@ -31,26 +29,31 @@ public class BoardDAOSpring {
 	// 글 수정
 	public void updateBoard(BoardVO vo) {
 		System.out.println("===> SPRING 기반으로 updateBoard() 기능 처리");
-
+		spring.update(BOARD_UPDATE, vo.getTitle(), vo.getContent(), vo.getSeq());
 	}
 
 	// 글 삭제
 	public void deleteBoard(BoardVO vo) {
 		System.out.println("===> SPRING 기반으로 deleteBoard() 기능 처리");
-
+		spring.update(BOARD_DELETE, vo.getSeq());
 	}
 	
 	// 글 상세 조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> SPRING 기반으로 getBoard() 기능 처리");
-		BoardVO board = null;
-		return board;
+		Object[] params = {vo.getSeq()};
+		return spring.queryForObject(BOARD_GET, new BoardRowMapper(), params);
 	}
 
 	// 글 목록 검색
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> SPRING 기반으로 getBoardList() 기능 처리");
-		List<BoardVO> boardList = new ArrayList<BoardVO>();
-		return boardList;
+		Object[] params = {};
+		return spring.query(BOARD_LIST, new BoardRowMapper(), params);
 	}
 }
+
+
+
+
+

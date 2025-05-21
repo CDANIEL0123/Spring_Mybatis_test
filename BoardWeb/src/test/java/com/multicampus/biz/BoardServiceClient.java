@@ -18,16 +18,16 @@ public class BoardServiceClient {
 		BoardService boardService = (BoardService) container.getBean("boardService");
 		
 		BoardVO vo = new BoardVO();
-		vo.setSeq(888);
+		vo.setSeq(101);
 		vo.setTitle("Spring JDBC 테스트");
 		vo.setWriter("테스터");
 		vo.setContent("Spring JDBC 테스트 중입니다.");
-		boardService.insertBoard(vo);
+		//boardService.insertBoard(vo);
 		
-//		List<BoardVO> boardList = boardService.getBoardList(vo);
-//		for (BoardVO board : boardList) {
-//			System.out.println("---> " + board.toString());
-//		}
+		List<BoardVO> boardList = boardService.getBoardList(vo);
+		for (BoardVO board : boardList) {
+			System.out.println("---> " + board.toString());
+		}
 		
 //		vo.setSeq(4);
 //		boardService.deleteBoard(vo);
