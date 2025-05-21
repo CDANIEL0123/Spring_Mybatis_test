@@ -2,8 +2,7 @@ package com.multicampus.biz.board;
 
 import java.util.Date;
 
-//VO(Value Object) : BOARD 테이블의 하나의 ROW와 매핑되는 클래스
-
+// VO(Value Object) : BOARD 테이블의 하나의 ROW와 매핑되는 클래스
 public class BoardVO {
 	private int seq;
 	private String title;
@@ -48,7 +47,6 @@ public class BoardVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	
 	@Override
 	public String toString() {
 		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="

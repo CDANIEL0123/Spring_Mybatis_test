@@ -6,13 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.multicampus.biz.common.JDBCUtil;
 
 // 2. DAO(Data Access Object) 클래스
-
 @Repository
 public class BoardDAO {
 	// JDBC 관련 변수 선언
@@ -29,7 +27,6 @@ public class BoardDAO {
 
 	// CRUD 기능의 메소드 구현
 	// 글 등록
-	@Override
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC 기반으로 insertBoard() 기능 처리");
 		try {
@@ -47,7 +44,6 @@ public class BoardDAO {
 	}
 
 	// 글 수정
-	@Override
 	public void updateBoard(BoardVO vo) {
 		System.out.println("===> JDBC 기반으로 updateBoard() 기능 처리");
 		try {
@@ -65,7 +61,6 @@ public class BoardDAO {
 	}
 
 	// 글 삭제
-	@Override
 	public void deleteBoard(BoardVO vo) {
 		System.out.println("===> JDBC 기반으로 deleteBoard() 기능 처리");
 		try {
@@ -81,7 +76,6 @@ public class BoardDAO {
 	}
 	
 	// 글 상세 조회
-	@Override
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> JDBC 기반으로 getBoard() 기능 처리");
 		BoardVO board = null;
@@ -108,7 +102,6 @@ public class BoardDAO {
 	}
 
 	// 글 목록 검색
-	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> JDBC 기반으로 getBoardList() 기능 처리");
 		List<BoardVO> boardList = new ArrayList<BoardVO>();

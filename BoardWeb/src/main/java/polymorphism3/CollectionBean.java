@@ -1,14 +1,15 @@
 package polymorphism3;
 
-public class CollectionBean {
-	private properties addressList;
+import java.util.Properties;
 
-	public properties getAddressList() {
+public class CollectionBean {
+	private Properties addressList;
+
+	public Properties getAddressList() {
 		return addressList;
 	}
 
-	public void setAddressList(properties addressList) {
+	public void setAddressList(Properties addressList) {
 		this.addressList = addressList;
 	}
-
 }

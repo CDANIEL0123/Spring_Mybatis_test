@@ -3,7 +3,6 @@ package com.multicampus.biz.common;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 
@@ -11,9 +10,8 @@ import org.springframework.util.StopWatch;
 @Aspect
 public class AroundAdvice {
 	
-	
-	//Around 로 등록되는 메소드는 리턴타입()과 매개변수()가 고정되어있음.
-	@Around("BoardPointcut.allPointcut()")
+	// Around로 등록되는 메소드는 리턴타입(Object)과 매개변수(ProceedingJoinPoint)가 고정되어 있다. 
+	@Around("BoardPointcut.allPoitcut()")
 	public Object aroundLog(ProceedingJoinPoint jp) throws Throwable {
 		String methodName = jp.getSignature().getName();
 		
@@ -21,12 +19,11 @@ public class AroundAdvice {
 		StopWatch watch = new StopWatch();
 		watch.start();
 		
-		//ProceedingJoinPoint의 proceed() 메소드를 호출해야만 클라이언트가 호출한 비즈니스 메소드가 실행됨
+		// ProceedingJoinPoint의 proceed() 메소드를 호출해야 클라이언트가 호출한 비즈니스 메소드가 실행된다.
 		obj = jp.proceed();
 		
-		watch.stop();		
-		System.out.println("비즈니스 메소드 수행에 소요된 시간 : " + watch.getTotalTimeMillis());
+		watch.stop();
+		System.out.println(methodName + "() 메소드 수행에 소요된 시간 : " + watch.getTotalTimeMillis());
 		return obj;
-		//around는 리턴타입이 무조건 object여야함
 	}
 }

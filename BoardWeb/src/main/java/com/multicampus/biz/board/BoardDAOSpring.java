@@ -1,20 +1,13 @@
 package com.multicampus.biz.board;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.multicampus.biz.common.JDBCUtil;
-
 // 2. DAO(Data Access Object) 클래스
-
 @Repository
 public class BoardDAOSpring {
 	
@@ -31,30 +24,32 @@ public class BoardDAOSpring {
 	// CRUD 기능의 메소드 구현
 	// 글 등록
 	public void insertBoard(BoardVO vo) {
-		System.out.println("===> Spring 기반으로 insertBoard() 기능 처리");
-		spring.update(BOARD_INSERT, vo.getTitle(),vo.getWriter(),vo.getContent());
+		System.out.println("===> SPRING 기반으로 insertBoard() 기능 처리");
+		spring.update(BOARD_INSERT, vo.getTitle(), vo.getWriter(), vo.getContent());
 	}
 
 	// 글 수정
 	public void updateBoard(BoardVO vo) {
-		System.out.println("===> Spring 기반으로 updateBoard() 기능 처리");
+		System.out.println("===> SPRING 기반으로 updateBoard() 기능 처리");
+
 	}
 
 	// 글 삭제
 	public void deleteBoard(BoardVO vo) {
-		System.out.println("===> Spring 기반으로 deleteBoard() 기능 처리");
+		System.out.println("===> SPRING 기반으로 deleteBoard() 기능 처리");
+
 	}
 	
 	// 글 상세 조회
 	public BoardVO getBoard(BoardVO vo) {
-		System.out.println("===> Spring 기반으로 getBoard() 기능 처리");
+		System.out.println("===> SPRING 기반으로 getBoard() 기능 처리");
 		BoardVO board = null;
 		return board;
 	}
 
 	// 글 목록 검색
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		System.out.println("===> Spring 기반으로 getBoardList() 기능 처리");
+		System.out.println("===> SPRING 기반으로 getBoardList() 기능 처리");
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		return boardList;
 	}

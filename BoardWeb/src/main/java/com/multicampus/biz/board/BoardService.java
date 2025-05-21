@@ -2,8 +2,7 @@ package com.multicampus.biz.board;
 
 import java.util.List;
 
-
-//3. 서비스 인터페이스
+// 3. Service 인터페이스
 public interface BoardService {
 
 	// CRUD 기능의 메소드 구현
