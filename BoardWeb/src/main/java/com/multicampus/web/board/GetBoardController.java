@@ -9,7 +9,6 @@ import com.multicampus.biz.board.BoardVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 public class GetBoardController implements Controller {
 
@@ -27,12 +26,9 @@ public class GetBoardController implements Controller {
 		BoardDAO dao = new BoardDAOJdbc();
 		BoardVO board = dao.getBoard(vo);
 		
-		// 2. Model(DAO)을 이용하여 검색한 데이터를 View(JSP)에서 사용할 수 있도록 세션에 등록한다.
-		HttpSession session = request.getSession();
-		session.setAttribute("board", board);
-		
 		// 3. 화면 이동
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("board", board);
 		mav.setViewName("getBoard.jsp");
 		return mav;
 	}

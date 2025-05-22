@@ -12,9 +12,9 @@
 <h1>게시판 메인 페이지</h1>
 <hr>
 <br><br><br><br>
-<a href="login.jsp">로그인 화면으로 이동</a>
+<a href="login.do">로그인 화면으로 이동</a>
 <br><br><br><br>
-<a href="insertBoard.jsp">글 등록 화면으로 이동</a>
+<a href="insertBoardView.do">글 등록 화면으로 이동</a>
 </center>
 </body>
 </html>

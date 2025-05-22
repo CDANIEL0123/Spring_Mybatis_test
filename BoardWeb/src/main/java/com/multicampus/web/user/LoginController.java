@@ -1,40 +1,47 @@
 package com.multicampus.web.user;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.multicampus.biz.user.UserDAO;
 import com.multicampus.biz.user.UserVO;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-public class LoginController implements Controller {
+@Controller
+public class LoginController {
+
+	// 로그인 화면으로 이동
+	//@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	@GetMapping("/login.do")
+	public String loginView(@ModelAttribute("user") UserVO vo) throws Exception {
+		// Command 객체에 값을 설정하면 JSP에서 그 값을 이용할 수 있다. 
+		vo.setId("admin");
+		vo.setPassword("test123");
+		return "login.jsp";
+	}
 	
-	@Override
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("로그인 처리");
-		
-		// 1. 사용자 입력정보 추출
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		
-		// 2. DB 연동 처리
-		UserVO vo = new UserVO();
-		vo.setId(id);
-		vo.setPassword(password);
-		
-		UserDAO dao = new UserDAO();
+	// 로그인 인증 처리
+	//@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@PostMapping("/login.do")
+	public String login(UserVO vo, UserDAO dao, HttpSession session) throws Exception {
 		UserVO user = dao.getUser(vo);
-		
-		// 3. 화면 이동
-		ModelAndView mav = new ModelAndView();
 		if(user != null) {
-			mav.setViewName("getBoardList.do");
-		} else {
-			mav.setViewName("login.jsp");
+			// 로그인 성공 시, 사용자 정보를 세션에 등록한다.
+			session.setAttribute("user", user);
+			
+			return "forward:getBoardList.do";
 		}
-		return mav;
+		else return "login.jsp";
+	}
+	
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
