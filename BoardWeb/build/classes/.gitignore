@@ -3,8 +3,11 @@
 /com/
 /create_table.sql
 /hello/
+/mappings/
 /messages/
 /polymorphism1/
 /polymorphism2/
 /polymorphism3/
 /props/
+/sql-map-config(ibatis).xml
+/sql-map-config(mybatis).xml

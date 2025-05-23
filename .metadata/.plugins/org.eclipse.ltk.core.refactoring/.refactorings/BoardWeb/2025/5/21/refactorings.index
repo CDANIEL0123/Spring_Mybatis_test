@@ -1,0 +1,61 @@
+1747622172157	Copy compilation unit
+1747622472187	Copy package
+1747622543792	Extract interface 'TV'
+1747622850213	Copy package
+1747623842352	Copy compilation unit
+1747623995217	Delete element
+1747630122614	Copy file
+1747630125215	Delete element
+1747630149717	Move file
+1747636937220	Copy compilation unit
+1747637147537	Extract interface 'Speaker'
+1747638785038	Copy compilation unit
+1747703218968	Extract interface 'BoardService'
+1747704108394	Copy file
+1747707002700	Copy compilation unit
+1747707040306	Rename type 'BoardDAO'
+1747707474752	Extract interface 'UserService'
+1747707704723	Copy compilation unit
+1747708836780	Copy compilation unit
+1747717616198	Delete element
+1747717655103	Copy compilation unit
+1747720029129	Copy compilation unit
+1747721006111	Copy compilation unit
+1747726834907	Copy compilation unit
+1747788627891	Copy compilation unit
+1747790878985	Extract interface 'BoardDAO'
+1747794628982	Copy file
+1747795807772	Copy file
+1747796364374	Copy file
+1747802134653	Copy file
+1747803126872	Delete elements
+1747804391786	Delete element
+1747807063487	Delete elements
+1747810450651	Copy file
+1747810474186	Rename resource 'business-layer.xml'
+1747810852092	Copy compilation unit
+1747810858816	Copy compilation unit
+1747810864174	Copy compilation unit
+1747810872166	Copy compilation unit
+1747810879602	Copy compilation unit
+1747810885682	Copy compilation unit
+1747872159055	Rename resource 'action-servlet.xml'
+1747872183300	Move 'presentation-layer.xml' to 'config'
+1747872477105	Delete element
+1747876676793	Delete elements
+1747877299818	Delete element
+1747878016719	Move 'web.xml' to 'webapp'
+1747878068876	Move 'web.xml' to 'WEB-INF'
+1747878219574	Move file
+1747878227482	Move 4 resources to 'WEB-INF'
+1747878230497	Move 'web.xml' to 'WEB-INF'
+1747879923354	Move 4 resources to 'board'
+1747898085125	Copy file
+1747968701269	Copy compilation unit
+1747977357936	Copy file
+1747977558007	Copy compilation unit
+1747978676751	Copy file
+1747979187250	Copy file
+1747979954911	Copy compilation unit
+1747980612501	Copy file
+1747981018790	Copy compilation unit

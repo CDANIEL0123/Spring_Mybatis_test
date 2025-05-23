@@ -1,11 +1,16 @@
 package com.multicampus.web.board;
 
+import java.io.File;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.multicampus.biz.board.BoardService;
 import com.multicampus.biz.board.BoardVO;
@@ -19,6 +24,14 @@ public class BoardController {
 	// BoardService 타입의 객체(BoardServiceImpl)를 주입해라.
 	@Autowired
 	private BoardService boardService;
+	
+	@RequestMapping("/json.do")
+	// @ResponseBody는 리턴되는 자바 객체를 JSON으로 변환하여 HTTP 응답 프로토콜 Body에 출력해준다.
+	public @ResponseBody List<BoardVO> json(BoardVO vo) throws Exception {
+		vo.setSearchCondition("TITLE");
+		vo.setSearchKeyword("");
+		return boardService.getBoardList(vo);
+	}
 
 	// 글 등록 화면으로 이동
 	@RequestMapping("/insertBoardView.do")
@@ -29,7 +42,16 @@ public class BoardController {
 	// 글 등록
 	@RequestMapping("/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws Exception {
+		// 1. 파일 업로드 처리
+		MultipartFile upload = vo.getUploadFile();
+		if(!upload.isEmpty()) { // 업로드 정보가 있다면...
+			long time = System.currentTimeMillis();
+			upload.transferTo(new File("C:/DEV/upload_files/" + time + "_" + upload.getOriginalFilename()));
+		}	
+		
+		// 2. 글 등록 처리
 		boardService.insertBoard(vo);
+		
 		// 문자열을 리턴하면 해당 화면으로 이동한다(기본 : Forward)
 		return "redirect:getBoardList.do";
 	}

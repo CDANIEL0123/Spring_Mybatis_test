@@ -1,0 +1,35 @@
+package hello;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class HelloServlet extends HttpServlet {
+	
+	public HelloServlet() {
+		System.out.println("===> HelloServlet 생성");
+	}
+	
+	@Override
+	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.service(arg0, arg1);
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("---> doGet() 실행");
+		System.out.println(req.getMethod());
+		System.out.println(req.getProtocol());
+		System.out.println(req.getRequestURI());
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPost(req, resp);
+	}
+}

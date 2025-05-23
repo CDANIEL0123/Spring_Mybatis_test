@@ -1,0 +1,26 @@
+package com.multicampus.web.user;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+public class LogoutController implements Controller {
+
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("로그아웃 처리");
+		
+		// 로그아웃 요청한 브라우저와 매핑된 세션을 강제 종료
+		HttpSession session = request.getSession();
+		session.invalidate();
+
+		// 메인 페이지로 이동
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/");
+		return mav;
+	}
+
+}

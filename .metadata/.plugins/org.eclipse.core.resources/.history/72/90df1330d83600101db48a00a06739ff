@@ -1,0 +1,12 @@
+package hello;
+
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class HelloListener implements ServletContextListener {
+	public HelloListener() {
+		System.out.println("===> HelloListener 생성");
+	}
+	
+}

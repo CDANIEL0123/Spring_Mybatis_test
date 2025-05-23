@@ -1,0 +1,21 @@
+package hello;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class HelloServlet extends HttpServlet {
+	public HelloServlet() {
+		System.out.println("===> HelloServlet 생성");
+	}
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("---> doGet() 실행");
+		System.out.println(req.getMethod());
+		System.out.println(req.getProtocol());
+		System.out.println(req.getRequestURI());
+	}
+}

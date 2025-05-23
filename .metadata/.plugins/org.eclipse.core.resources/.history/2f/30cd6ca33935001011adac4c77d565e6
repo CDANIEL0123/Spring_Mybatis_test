@@ -1,0 +1,9 @@
+package com.multicampus.biz.common;
+
+// After-Returning은 비즈니스 메소드가 리턴한 데이터를 받아서 사후처리 로직을 작성할 수 있다.
+public class AfterReturningAdvice {
+	
+	public void afterLog() {
+		System.out.println("[사후 처리] 비즈니스 로직 수행 후 동작");
+	}
+}

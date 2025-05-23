@@ -1,0 +1,18 @@
+package com.multicampus.biz;
+
+import java.util.List;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.multicampus.biz.board.BoardService;
+import com.multicampus.biz.board.BoardVO;
+
+public class BoardServiceClient {
+
+	public static void main(String[] args) {
+		new GenericXmlApplicationContext("business-layer.xml");
+	}
+
+}
+
+

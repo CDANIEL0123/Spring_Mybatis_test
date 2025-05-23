@@ -1,0 +1,10 @@
+package com.multicampus.biz.common;
+
+// After-Throwing은 비즈니스 메소드에서 발생된 예외 객체를 받아서 사후처리 로직을 구현할 수 있다. 
+public class AfterThrowingAdvice {
+	
+	// 컨테이너는 exceptionObj 변수에 비즈니스 메소드에서 발생된 예외 객체를 전달한다.
+	public void exceptionLog(Exception exceptionObj) {
+		System.out.println("[예외 처리] 비즈니스 로직 수행 중 예외 발생");
+	}
+}

@@ -1,0 +1,25 @@
+package com.multicampus.biz;
+
+import java.util.List;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.multicampus.biz.board.BoardService;
+import com.multicampus.biz.board.BoardVO;
+
+public class BoardServiceClient {
+
+	public static void main(String[] args) {
+		// 1. Spring 컨테이너를 생성한다.
+		GenericXmlApplicationContext container = 
+			new GenericXmlApplicationContext("business-layer.xml");
+		
+		// 2. 컨테이너로부터 사용할 객체를 검색(Lookup)한다.
+		BoardService boardService = (BoardService) container.getBean("boardService");
+		
+
+	}
+
+}
+
+

@@ -1,0 +1,17 @@
+package com.multicampus.web.user;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class LogoutController {
+
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "/";
+	}
+
+}

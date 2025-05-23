@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
-	private UserDAOSpring userDAO;
+	private UserDAOMybatis userDAO;
 
 	@Override
 	public UserVO getUser(UserVO vo) {

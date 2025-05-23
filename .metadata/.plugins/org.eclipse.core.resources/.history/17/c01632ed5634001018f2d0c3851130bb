@@ -1,0 +1,12 @@
+package hello;
+
+public class HelloWorld {
+
+	public static void 되나() {
+		System.out.println("된다.");
+	}
+	
+	public static void main(String[] args) {
+		되나();
+	}
+}

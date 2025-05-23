@@ -1,0 +1,9 @@
+# login.jsp messages
+user.login.title=Login Page
+user.login.id=ID
+user.login.password=PASSWORD
+user.login.loginbtn=Login
+user.login.lang.en=English
+user.login.lang.ko=Korean
+
+# getBoardList.jsp messages

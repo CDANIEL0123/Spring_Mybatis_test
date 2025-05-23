@@ -1,0 +1,9 @@
+package com.multicampus.web;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class DispatcherServlet extends HttpServlet {
+	public DispatcherServlet() {
+		System.out.println("===> DispatcherServlet 생성");
+	}
+}

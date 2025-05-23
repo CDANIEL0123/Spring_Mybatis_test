@@ -1,0 +1,14 @@
+package hello;
+
+public class HelloWorld {
+
+	public static String hello(String name) {
+//		System.out.println("된다.");
+		return "hello : " + name;
+	}
+	
+	public static void main(String[] args) {
+//		되나();
+		System.out.println(hello("채규태"));
+	}
+}
